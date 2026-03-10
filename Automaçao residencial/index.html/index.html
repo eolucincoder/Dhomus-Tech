@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Dhomus Tech - Automação Residencial</title>
 
 <link rel="stylesheet" href="style.css">
@@ -17,8 +19,9 @@
 
 <nav>
 <a href="#inicio">Início</a>
+<a href="#sobre">Sobre</a>
 <a href="#servicos">Serviços</a>
-<a href="#buscar">Buscar Automação</a>
+<a href="#buscar">Pesquisar</a>
 <a href="#contato">Contato</a>
 </nav>
 
@@ -29,37 +32,48 @@
 <h1>Automação Residencial Inteligente</h1>
 
 <p>
-Controle luzes, portões, câmeras e muito mais direto do seu celular.
+Controle sua casa pelo celular, voz ou automações inteligentes.
 </p>
 
-<button onclick="scrollParaBusca()">Quero automatizar minha casa</button>
+<button onclick="scrollBusca()">Quero automatizar minha casa</button>
+
+</section>
+
+<section id="sobre">
+
+<h2>Sobre a Dhomus Tech</h2>
+
+<p>
+A Dhomus Tech é especializada em automação residencial moderna,
+trazendo conforto, segurança e tecnologia para sua casa.
+</p>
 
 </section>
 
 <section id="servicos">
 
-<h2>O que você pode automatizar</h2>
+<h2>Nossos Serviços</h2>
 
 <div class="cards">
 
 <div class="card">
-<h3>💡 Iluminação</h3>
-<p>Controle total das luzes pelo celular ou comando de voz.</p>
+<h3>💡 Automação de Luzes</h3>
+<p>Controle iluminação pelo celular ou comando de voz.</p>
 </div>
 
 <div class="card">
-<h3>🔐 Segurança</h3>
-<p>Câmeras, fechaduras digitais e alarmes inteligentes.</p>
+<h3>📷 Segurança</h3>
+<p>Câmeras inteligentes e monitoramento remoto.</p>
 </div>
 
 <div class="card">
-<h3>🚪 Portões</h3>
-<p>Abertura automática e controle remoto.</p>
+<h3>🚪 Portões Automáticos</h3>
+<p>Abertura e controle direto pelo aplicativo.</p>
 </div>
 
 <div class="card">
-<h3>📱 Controle Total</h3>
-<p>Controle tudo pelo celular de qualquer lugar.</p>
+<h3>🔐 Fechaduras Digitais</h3>
+<p>Controle de acesso moderno e seguro.</p>
 </div>
 
 </div>
@@ -70,7 +84,7 @@ Controle luzes, portões, câmeras e muito mais direto do seu celular.
 
 <h2>Pesquisar automação</h2>
 
-<input type="text" id="pesquisa" placeholder="Ex: luz, portão, câmera">
+<input type="text" id="pesquisa" placeholder="Ex: luz, câmera, portão">
 
 <div id="resultado"></div>
 
@@ -78,17 +92,31 @@ Controle luzes, portões, câmeras e muito mais direto do seu celular.
 
 <section id="contato">
 
-<h2>Fale conosco</h2>
+<h2>Contato</h2>
 
-<p>Quer automatizar sua casa? Entre em contato.</p>
+<p>Email: dhomustechautomacao@gmail.com</p>
 
-<button onclick="whatsapp()">Chamar no WhatsApp</button>
+<form>
+
+<input type="text" placeholder="Seu nome" required>
+
+<input type="email" placeholder="Seu email" required>
+
+<textarea placeholder="Mensagem"></textarea>
+
+<button type="submit">Enviar</button>
+
+</form>
+
+<button onclick="whatsapp()">Falar no WhatsApp</button>
 
 </section>
 
 <footer>
 
 <p>© 2026 Dhomus Tech - Automação Residencial</p>
+
+<p>Email: dhomustechautomacao@gmail.com</p>
 
 </footer>
 
