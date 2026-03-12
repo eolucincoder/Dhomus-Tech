@@ -1,0 +1,32 @@
+/* Estilos customizados adicionais */
+.glass-nav {
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(10px);
+}
+
+.portfolio-item {
+    transition: all 0.4s ease;
+}
+
+.portfolio-item:hover .portfolio-overlay {
+    opacity: 1;
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Animação de fade in */
+.fade-in {
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.logo img {
+  height: 180px;
+  width: auto;
+}

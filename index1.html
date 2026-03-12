@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartLiving | Automação Residencial e Corporativa</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome para Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Configuração de Cores Customizadas do Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            light: '#3b82f6',
+                            DEFAULT: '#2563eb',
+                            dark: '#1d4ed8',
+                        },
+                        dark: '#0f172a',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- estilos customizados externos -->
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased overflow-x-hidden">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="logo">
+                    <img src="img/logo-dhomus-removebg-preview.png" alt="SmartLiving" class="mr-0 object-contain">
+                </div>
+
+                <!-- Desktop Menu -->                       
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#home" class="text-gray-300 hover:text-white transition-colors duration-200 text-sm font-medium">Início</a>
+                    <a href="#sobre" class="text-gray-300 hover:text-white transition-colors duration-200 text-sm font-medium">Sobre Nós</a>
+                    <a href="#servicos" class="text-gray-300 hover:text-white transition-colors duration-200 text-sm font-medium">Serviços</a>
+                    <a href="#portfolio" class="text-gray-300 hover:text-white transition-colors duration-200 text-sm font-medium">Nosso Trabalho</a>
+                    <a href="#contato" class="bg-brand hover:bg-brand-dark text-white px-5 py-2 rounded-full transition-colors duration-300 text-sm font-medium shadow-lg shadow-brand/30">Fale Conosco</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-dark border-t border-gray-800">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="mobile-link block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Início</a>
+                <a href="#sobre" class="mobile-link block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Sobre Nós</a>
+                <a href="#servicos" class="mobile-link block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Serviços</a>
+                <a href="#portfolio" class="mobile-link block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Nosso Trabalho</a>
+                <a href="#contato" class="mobile-link block px-3 py-2 text-base font-medium text-brand hover:text-brand-light rounded-md">Fale Conosco</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen flex items-center justify-center">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1558002038-1055907df827?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Casa Inteligente" class="w-full h-full object-cover object-center" />
+            <div class="absolute inset-0 bg-gradient-to-r from-dark/90 to-dark/60"></div>
+        </div>
+
+        <!-- Content -->
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto fade-in">
+            <span class="text-brand font-semibold tracking-wider uppercase text-sm mb-4 block">O Futuro é Agora</span>
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+                Transforme sua casa no <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-light to-blue-300">Lar do Futuro</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
+                Conforto, segurança e economia na palma da sua mão. Criamos projetos personalizados de automação para residências e empresas.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#portfolio" class="bg-brand hover:bg-brand-dark text-white px-8 py-3 rounded-full font-medium transition-all duration-300 shadow-lg shadow-brand/40">
+                    Ver Projetos
+                </a>
+                <a href="#contato" class="bg-transparent border-2 border-white hover:bg-white hover:text-dark text-white px-8 py-3 rounded-full font-medium transition-all duration-300">
+                    Solicitar Orçamento
+                </a>
+            </div>
+        </div>
+        
+        <!-- Scroll Down Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-10 hidden md:block">
+            <a href="#sobre" class="text-white/70 hover:text-white">
+                <i class="fa-solid fa-chevron-down text-2xl"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Sobre Section -->
+    <section id="sobre" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="order-2 lg:order-1 relative">
+                    <img src="https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Controle Smart Home" class="rounded-2xl shadow-2xl z-10 relative">
+                    <div class="absolute -bottom-6 -right-6 w-48 h-48 bg-brand rounded-2xl -z-10 opacity-20 hidden md:block"></div>
+                    <div class="absolute -top-6 -left-6 w-32 h-32 border-4 border-brand rounded-2xl -z-10 hidden md:block opacity-20"></div>
+                </div>
+                <div class="order-1 lg:order-2">
+                    <h2 class="text-3xl md:text-4xl font-bold text-dark mb-6">Integração perfeita com o seu estilo de vida</h2>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Na SmartLiving, acreditamos que a tecnologia deve servir para facilitar o seu dia a dia, não complicá-lo. Com mais de 10 anos de experiência, nossa equipe de engenheiros projeta sistemas invisíveis, intuitivos e totalmente customizados para a sua rotina.
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-full bg-blue-100 text-brand">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-semibold text-dark">Projetos Personalizados</h4>
+                                <p class="text-gray-500 text-sm">Desenhados exclusivamente para a planta do seu imóvel.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-full bg-blue-100 text-brand">
+                                <i class="fa-solid fa-mobile-screen"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-semibold text-dark">Controle Centralizado</h4>
+                                <p class="text-gray-500 text-sm">Gerencie tudo pelo celular, tablet ou assistentes de voz.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-full bg-blue-100 text-brand">
+                                <i class="fa-solid fa-leaf"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-semibold text-dark">Eficiência Energética</h4>
+                                <p class="text-gray-500 text-sm">Reduza o consumo otimizando luzes e ar condicionado.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Serviços Section -->
+    <section id="servicos" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand font-semibold tracking-wider uppercase text-sm">Nossas Especialidades</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dark mt-2 mb-4">Soluções Completas em Automação</h2>
+                <p class="text-gray-600">Trabalhamos com as melhores marcas do mercado para garantir estabilidade, segurança e durabilidade nos nossos projetos.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Serviço 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100 group">
+                    <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center text-brand text-2xl mb-6 group-hover:bg-brand group-hover:text-white transition-colors duration-300">
+                        <i class="fa-regular fa-lightbulb"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark mb-3">Iluminação</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Crie cenários perfeitos para leitura, festas ou relaxamento. Controle intensidade e cores com um toque.</p>
+                </div>
+
+                <!-- Serviço 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100 group">
+                    <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center text-brand text-2xl mb-6 group-hover:bg-brand group-hover:text-white transition-colors duration-300">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark mb-3">Segurança</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Câmeras, fechaduras biométricas e alarmes integrados. Monitore sua casa de qualquer lugar do mundo.</p>
+                </div>
+
+                <!-- Serviço 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100 group">
+                    <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center text-brand text-2xl mb-6 group-hover:bg-brand group-hover:text-white transition-colors duration-300">
+                        <i class="fa-solid fa-snowflake"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark mb-3">Climatização</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Chegue em casa com a temperatura ideal. Integração de ar condicionado, piso aquecido e persianas.</p>
+                </div>
+
+                <!-- Serviço 4 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100 group">
+                    <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center text-brand text-2xl mb-6 group-hover:bg-brand group-hover:text-white transition-colors duration-300">
+                        <i class="fa-solid fa-film"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark mb-3">Áudio & Vídeo</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Home theaters de alta fidelidade e som ambiente distribuído por todos os cômodos da casa invisivelmente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 bg-dark text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <div class="max-w-2xl mb-6 md:mb-0">
+                    <span class="text-brand font-semibold tracking-wider uppercase text-sm">Nosso Portfólio</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mt-2">Trabalhos Recentes</h2>
+                </div>
+                <!-- Filtros -->
+                <div class="flex space-x-2 overflow-x-auto pb-2">
+                    <button class="filter-btn active bg-brand text-white px-5 py-2 rounded-full text-sm font-medium transition-colors" data-filter="all">Todos</button>
+                    <button class="filter-btn bg-gray-800 text-gray-300 hover:bg-gray-700 px-5 py-2 rounded-full text-sm font-medium transition-colors" data-filter="residencial">Residencial</button>
+                    <button class="filter-btn bg-gray-800 text-gray-300 hover:bg-gray-700 px-5 py-2 rounded-full text-sm font-medium transition-colors" data-filter="corporativo">Corporativo</button>
+                </div>
+            </div>
+
+            <!-- Grid do Portfolio -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="portfolio-grid">
+                
+                <!-- Item 1 -->
+                <div class="portfolio-item relative overflow-hidden rounded-2xl cursor-pointer" data-category="residencial">
+                    <div class="h-80 w-full overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Casa Inteligente SP" class="w-full h-full object-cover transition-transform duration-700">
+                    </div>
+                    <div class="portfolio-overlay absolute inset-0 bg-gradient-to-t from-dark via-dark/60 to-transparent opacity-0 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-brand font-medium text-sm mb-1">Residencial</span>
+                        <h3 class="text-xl font-bold text-white mb-2">Residência Alphaville</h3>
+                        <p class="text-gray-300 text-sm">Automação total: Iluminação, persianas e climatização controlados por assistente de voz.</p>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="portfolio-item relative overflow-hidden rounded-2xl cursor-pointer" data-category="residencial">
+                    <div class="h-80 w-full overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1518557984649-7b161c230cfa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Home Theater" class="w-full h-full object-cover transition-transform duration-700">
+                    </div>
+                    <div class="portfolio-overlay absolute inset-0 bg-gradient-to-t from-dark via-dark/60 to-transparent opacity-0 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-brand font-medium text-sm mb-1">Residencial / Entretenimento</span>
+                        <h3 class="text-xl font-bold text-white mb-2">Sala de Cinema Privativa</h3>
+                        <p class="text-gray-300 text-sm">Cenário "Cinema" que apaga as luzes, fecha persianas e liga os equipamentos com 1 clique.</p>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="portfolio-item relative overflow-hidden rounded-2xl cursor-pointer" data-category="corporativo">
+                    <div class="h-80 w-full overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Escritório Smart" class="w-full h-full object-cover transition-transform duration-700">
+                    </div>
+                    <div class="portfolio-overlay absolute inset-0 bg-gradient-to-t from-dark via-dark/60 to-transparent opacity-0 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-brand font-medium text-sm mb-1">Corporativo</span>
+                        <h3 class="text-xl font-bold text-white mb-2">Sede TechCorp</h3>
+                        <p class="text-gray-300 text-sm">Salas de reunião automatizadas, controle de acesso biométrico e gestão de energia.</p>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="portfolio-item relative overflow-hidden rounded-2xl cursor-pointer" data-category="residencial">
+                    <div class="h-80 w-full overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Fechadura Digital" class="w-full h-full object-cover transition-transform duration-700">
+                    </div>
+                    <div class="portfolio-overlay absolute inset-0 bg-gradient-to-t from-dark via-dark/60 to-transparent opacity-0 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-brand font-medium text-sm mb-1">Residencial / Segurança</span>
+                        <h3 class="text-xl font-bold text-white mb-2">Acesso Inteligente</h3>
+                        <p class="text-gray-300 text-sm">Sistema de segurança perimetral integrado com CFTV e fechaduras digitais.</p>
+                    </div>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="portfolio-item relative overflow-hidden rounded-2xl cursor-pointer" data-category="corporativo">
+                    <div class="h-80 w-full overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Auditório" class="w-full h-full object-cover transition-transform duration-700">
+                    </div>
+                    <div class="portfolio-overlay absolute inset-0 bg-gradient-to-t from-dark via-dark/60 to-transparent opacity-0 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-brand font-medium text-sm mb-1">Corporativo</span>
+                        <h3 class="text-xl font-bold text-white mb-2">Centro de Convenções</h3>
+                        <p class="text-gray-300 text-sm">Distribuição de áudio e vídeo de alta complexidade em múltiplos ambientes.</p>
+                    </div>
+                </div>
+
+                <!-- Item 6 -->
+                <div class="portfolio-item relative overflow-hidden rounded-2xl cursor-pointer" data-category="residencial">
+                    <div class="h-80 w-full overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Iluminação Quarto" class="w-full h-full object-cover transition-transform duration-700">
+                    </div>
+                    <div class="portfolio-overlay absolute inset-0 bg-gradient-to-t from-dark via-dark/60 to-transparent opacity-0 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-brand font-medium text-sm mb-1">Residencial</span>
+                        <h3 class="text-xl font-bold text-white mb-2">Suíte Master</h3>
+                        <p class="text-gray-300 text-sm">Despertar natural com abertura gradual das persianas e iluminação dimerizada.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action / Contato -->
+    <section id="contato" class="py-20 bg-white relative">
+        <div class="absolute right-0 top-0 w-1/3 h-full bg-blue-50 -z-10 hidden lg:block"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                
+                <!-- Info -->
+                <div>
+                    <span class="text-brand font-semibold tracking-wider uppercase text-sm">Vamos Conversar</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-dark mt-2 mb-6">Pronto para dar o próximo passo?</h2>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        Deixe-nos saber um pouco mais sobre o seu projeto. Nossa equipe de especialistas entrará em contato para agendar uma consultoria gratuita.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center text-brand mr-4">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm text-gray-500 font-medium">Telefone / WhatsApp</h4>
+                                <p class="text-dark font-semibold">(11) 98765-4321</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center text-brand mr-4">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm text-gray-500 font-medium">E-mail</h4>
+                                <p class="text-dark font-semibold">contato@smartliving.com.br</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center text-brand mr-4">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm text-gray-500 font-medium">Showroom</h4>
+                                <p class="text-dark font-semibold">Av. Engenheiro Luís Carlos Berrini, 1500 - SP</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form -->
+                <div class="bg-white rounded-2xl shadow-2xl p-8 border border-gray-100 relative">
+                    <form id="contact-form" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nome Completo</label>
+                            <input type="text" id="name" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand focus:border-brand outline-none transition-colors bg-gray-50">
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">E-mail</label>
+                                <input type="email" id="email" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand focus:border-brand outline-none transition-colors bg-gray-50">
+                            </div>
+                            <div>
+                                <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Telefone</label>
+                                <input type="tel" id="phone" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand focus:border-brand outline-none transition-colors bg-gray-50">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="tipo_projeto" class="block text-sm font-medium text-gray-700 mb-1">Tipo de Projeto</label>
+                            <select id="tipo_projeto" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand focus:border-brand outline-none transition-colors bg-gray-50">
+                                <option value="residencial_novo">Residência (Construção/Reforma)</option>
+                                <option value="residencial_pronto">Residência (Imóvel Pronto)</option>
+                                <option value="corporativo">Corporativo / Escritório</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Mensagem</label>
+                            <textarea id="message" rows="4" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand focus:border-brand outline-none transition-colors bg-gray-50 resize-none"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-brand hover:bg-brand-dark text-white font-semibold py-4 rounded-lg transition-colors duration-300 shadow-lg shadow-brand/30 flex justify-center items-center">
+                            <span>Enviar Solicitação</span>
+                            <i class="fa-solid fa-paper-plane ml-2"></i>
+                        </button>
+                    </form>
+                    
+                    <!-- Mensagem de Sucesso (Oculta por padrão) -->
+                    <div id="success-message" class="hidden absolute inset-0 bg-white rounded-2xl flex flex-col items-center justify-center p-8 text-center">
+                        <div class="w-16 h-16 bg-green-100 text-green-500 rounded-full flex items-center justify-center text-3xl mb-4">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-dark mb-2">Mensagem Enviada!</h3>
+                        <p class="text-gray-600">Obrigado pelo contato. Nossa equipe retornará em breve.</p>
+                        <button id="close-success" class="mt-6 text-brand font-medium hover:underline">Enviar nova mensagem</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-gray-300 py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <img src="img/logo-dhomus-removebg-preview.png" alt="SmartLiving" class="h-12 mr-0 object-contain">
+                    </div>
+                    <p class="text-sm text-gray-400 mb-4">Especialistas em transformar ambientes através da tecnologia, criando espaços inteligentes, seguros e confortáveis.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand transition-colors"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand transition-colors"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Links Rápidos</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#home" class="hover:text-brand transition-colors">Início</a></li>
+                        <li><a href="#sobre" class="hover:text-brand transition-colors">Sobre Nós</a></li>
+                        <li><a href="#servicos" class="hover:text-brand transition-colors">Serviços</a></li>
+                        <li><a href="#portfolio" class="hover:text-brand transition-colors">Projetos</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Horário de Atendimento</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li>Segunda - Sexta: 09:00 às 18:00</li>
+                        <li>Sábado: 09:00 às 13:00 (Apenas Showroom)</li>
+                        <li>Domingo: Fechado</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
+                <p>&copy; 2026 SmartLiving Automação. Todos os direitos reservados.</p>
+                <p class="mt-2 md:mt-0">Feito com <i class="fa-solid fa-heart text-red-500"></i> para o futuro.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>
